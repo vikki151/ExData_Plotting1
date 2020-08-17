@@ -1,0 +1,8 @@
+data<-read.table("household_power_consumption.txt",sep = ";",header = TRUE)
+finaldata<-subset(data,data$Date=="1/2/2007" | data$Date=="2/2/2007")
+library(dplyr)
+library(lubridate)
+finaldata<-mutate(finaldata,contime = paste(finaldata$Date,finaldata$Time,sep = " "))
+##contime<-paste(finaldata$Date,finaldata$Time,sep = " ")
+##a<-as.Date(finaldata$Date,"%d/%m/%Y")
+finaldata$contime<-dmy_hms(finaldata$contime)

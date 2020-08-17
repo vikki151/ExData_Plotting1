@@ -1,0 +1,5 @@
+finaldata$Global_active_power<-as.numeric(finaldata$Global_active_power)
+plot(finaldata$contime,finaldata$Global_active_power,col = "black",ylab = "Global Active Power (kilowatts)", xlab ="" ,type = "l",xaxt="n")
+axis(side = 1,at = c(finaldata$contime[1],finaldata$contime[0.5*length(finaldata$contime)],finaldata$contime[length(finaldata$contime)]), labels = c("Thu","Fri","Sat"))
+dev.copy(png, file = "plot2.png")
+dev.off()
